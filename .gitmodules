@@ -1,0 +1,3 @@
+[submodule "tristan"]
+	path = tristan
+	url = git@github.com:semify-eda/tristan.git
