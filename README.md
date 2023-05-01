@@ -1,12 +1,32 @@
-# Caravel User Project
+# Tristan Project
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![UPRJ_CI](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml) [![Caravel Build](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml)
+Custom instructions for the CV32E40X on an ASIC using SKY130.
 
-| :exclamation: Important Note            |
-|-----------------------------------------|
+# Hardening
 
-## Please fill in your project documentation in this README.md file 
+First clone all submodules:
 
-Refer to [README](docs/source/index.rst#section-quickstart) for a quickstart of how to use caravel_user_project
+	git submodule update --init --recursive
 
-Refer to [README](docs/source/index.rst) for this sample project documentation. 
+Next build the preprocessed design in `tristan/`:
+
+	make preprocessed.v
+
+Add the power pins manually to the preprocessed.v:
+
+```
+`ifdef USE_POWER_PINS
+    inout vccd1,	// User area 1 1.8V supply
+    inout vssd1,	// User area 1 digital ground
+`endif
+```
+
+Inside the root harden the macros:
+
+	make cv32e40x
+
+# SoC
+
+TBD Planned SoC
+
+![block_diagram.png](img/block_diagram.png)
