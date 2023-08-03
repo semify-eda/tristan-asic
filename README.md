@@ -39,13 +39,13 @@ Before doing anything in this repository, first activate this script:
 
 Clone all submodules:
 
-	git submodule update --init --recursive
+	> git submodule update --init --recursive
 
 Next build the preprocessed design in `tristan/`:
 
-	make preprocessed.v
+	> make preprocessed.v
 
-Add the power pins manually to the preprocessed.v:
+Add the power pins manually to the `cv32e40x_top` module in `preprocessed.v`:
 
 ```
 `ifdef USE_POWER_PINS
@@ -56,7 +56,7 @@ Add the power pins manually to the preprocessed.v:
 
 Inside the root directory harden the macros:
 
-	make cv32e40x
+	> make cv32e40x_top
 
 # SoC
 
@@ -66,4 +66,4 @@ Planned SoC:
 
 # Macro of CV32E40X
 
-![cv32e40x.png](img/cv32e40x.png)
+![cv32e40x.png](img/cv32e40x_top.png)
