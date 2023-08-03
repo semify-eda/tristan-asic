@@ -35,6 +35,10 @@ Before doing anything in this repository, first activate this script:
 
 	> source setup.sh
 
+To install OpenLane run the following inside the root directory of this repository:
+
+	> make setup
+
 # Hardening
 
 Clone all submodules:
