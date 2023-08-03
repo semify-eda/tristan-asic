@@ -2,9 +2,42 @@
 
 Custom instructions for the CV32E40X on an ASIC using SKY130.
 
+# Setup
+
+I created a small setup script that needs to be placed *alongside* the cloned repository.
+
+```
+.
+├── tristan-asic (this repository)
+├── dependencies (create this folder)
+└── setup.sh
+```
+
+The contents of the script `setup.sh` are:
+
+```
+#!/bin/bash 
+
+# Absolute path to this script
+SCRIPT=$(readlink -f "$0")
+
+# Absolute path this script is in
+SCRIPTPATH=$(dirname "$SCRIPT")
+echo $SCRIPTPATH
+
+export OPENLANE_ROOT=$SCRIPTPATH/dependencies/openlane_src 
+export PDK_ROOT=$SCRIPTPATH/dependencies/pdks
+
+export PDK=sky130B
+```
+
+Before doing anything in this repository, first activate this script:
+
+	> source setup.sh
+
 # Hardening
 
-First clone all submodules:
+Clone all submodules:
 
 	git submodule update --init --recursive
 
@@ -21,12 +54,16 @@ Add the power pins manually to the preprocessed.v:
 `endif
 ```
 
-Inside the root harden the macros:
+Inside the root directory harden the macros:
 
 	make cv32e40x
 
 # SoC
 
-TBD Planned SoC
+Planned SoC:
 
 ![block_diagram.png](img/block_diagram.png)
+
+# Macro of CV32E40X
+
+![cv32e40x.png](img/cv32e40x.png)
