@@ -68,6 +68,18 @@ Planned SoC:
 
 ![block_diagram.png](img/block_diagram.png)
 
+# Planned SoC
+
+![bus_matrix.png](img/bus_matrix.png)
+
+Peripherals:
+
+- GPIO
+- 2xTimer
+- UART
+- WFG
+- Blinky
+
 # Macro of CV32E40X
 
 ![cv32e40x.png](img/cv32e40x_top.png)
